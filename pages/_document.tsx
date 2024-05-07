@@ -5,8 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        <Main />
-        <NextScript />
+        <div className="flex flex-col items-center  min-h-screen p-4">
+          <Main />
+          <NextScript />
+        </div>
       </body>
     </Html>
   );

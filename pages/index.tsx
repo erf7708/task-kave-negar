@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
 import { Post } from "@/utils/types";
 import { getPosts } from "@/services/postServices";
-import PostTableManagement from "@/components/posts/PostTableManagement";
+import PostManagement from "@/components/posts/PostManagement";
+import Loading from "@/components/loading/Loading";
 
 export default function Home() {
   const {
@@ -12,9 +13,9 @@ export default function Home() {
   return (
     <>
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading/>
       ) : (
-        <PostTableManagement posts={posts} />
+        <PostManagement posts={posts} />
       )}
     </>
   );
