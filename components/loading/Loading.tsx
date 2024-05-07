@@ -3,7 +3,7 @@ import React from "react";
 interface Props {}
 
 function Loading(props: Props) {
-  const {} = props;
+  
 
   return (
     <div className="flex justify-center items-center min-h-screen">
