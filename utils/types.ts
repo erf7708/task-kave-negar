@@ -4,6 +4,6 @@ export interface Post {
     body: string;
   }
 
- export interface PostTableManagementProps {
+ export interface PostManagementProps {
     posts: Post[] | undefined;
   }
