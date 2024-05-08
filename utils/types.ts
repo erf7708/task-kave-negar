@@ -24,5 +24,9 @@ export interface Post {
     isLoading: boolean;
     isError: boolean;
     error: Error | null;
+
   };
   
+   export interface ErrorMessageProps {
+    message: string;
+  }

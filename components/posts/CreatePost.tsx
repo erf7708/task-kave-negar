@@ -5,7 +5,8 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { FormInput } from "@/utils/types";
 import { createPost } from "@/services/postServices";
-import { usePosts } from '@/context/postContext';
+import { usePosts } from "@/context/postContext";
+import { useSnackbar } from "notistack";
 
 const schema = yup
   .object({
@@ -18,7 +19,7 @@ const CreatePost = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { addPost } = usePosts();
-
+  const { enqueueSnackbar } = useSnackbar();
 
   const {
     register,
@@ -31,17 +32,22 @@ const CreatePost = () => {
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     try {
       const newPost = await createPost(data);
-      addPost(newPost)
+      addPost(newPost);
       setIsLoading(false);
+      enqueueSnackbar("Post successfully created", { variant: "success" });
+
       router.push("/");
     } catch (error) {
-      setIsLoading(false);
+      if (error) {
+        enqueueSnackbar("An error has occurred", { variant: "error" });
+        setIsLoading(false);
+      }
     }
   };
 
   return (
     <div className="max-w-4xl mx-auto mt-20 p-6 bg-white rounded-lg shadow-md">
-      <form onSubmit={handleSubmit(onSubmit)} className="px-8 pt-6 pb-8 mb-4" >
+      <form onSubmit={handleSubmit(onSubmit)} className="px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             title
@@ -93,4 +99,3 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
-

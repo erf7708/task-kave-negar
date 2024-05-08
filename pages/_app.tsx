@@ -9,7 +9,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <PostProvider>
-        <SnackbarProvider>
+        <SnackbarProvider
+          maxSnack={3}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+        >
           <Component {...pageProps} />
         </SnackbarProvider>
       </PostProvider>
