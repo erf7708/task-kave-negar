@@ -1,14 +1,12 @@
-import React from 'react'
-
-interface Props {}
+import CreatePost from "@/components/posts/CreatePost";
+import React from "react";
 
 function page() {
-
-    return (
-        <>
-            ایجاد
-        </>
-    )
+  return (
+    <>
+      <CreatePost />
+    </>
+  );
 }
 
-export default page
+export default page;
