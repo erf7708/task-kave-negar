@@ -12,3 +12,17 @@ export interface Post {
     post: Post | null;
   }
   
+
+  export interface FormInput {
+    title: string;
+    body: string;
+  }
+
+  export type PostContextType = {
+    posts: Post[];
+    addPost: (post: Post) => void;
+    isLoading: boolean;
+    isError: boolean;
+    error: Error | null;
+  };
+  

@@ -1,5 +1,5 @@
 import axiosInstance from "@/utils/axios";
-import { Post } from "@/utils/types";
+import { Post,FormInput } from "@/utils/types";
 
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -20,3 +20,13 @@ export const getOnePostById = async (id: string): Promise<Post | null> => {
     return null;
   }
 };
+
+export const createPost = async (values: any): Promise<FormInput | null> => {
+    try {
+      const response = await axiosInstance.post<FormInput>('/posts', values);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching post:", error);
+      return null;
+    }
+  };

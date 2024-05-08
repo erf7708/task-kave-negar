@@ -1,22 +1,9 @@
-import { useQuery } from "react-query";
-import { Post } from "@/utils/types";
-import { getPosts } from "@/services/postServices";
 import PostManagement from "@/components/posts/PostManagement";
 import Loading from "@/components/loading/Loading";
+import { usePosts } from "@/context/postContext";
 
 export default function Home() {
-  const {
-    data: posts,
-    error,
-    isLoading,
-  } = useQuery<Post[], Error>("posts", getPosts);
-  return (
-    <>
-      {isLoading ? (
-        <Loading/>
-      ) : (
-        <PostManagement posts={posts} />
-      )}
-    </>
-  );
+  const { posts, isLoading } = usePosts();
+
+  return <>{isLoading ? <Loading /> : <PostManagement posts={posts} />}</>;
 }
