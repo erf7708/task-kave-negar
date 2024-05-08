@@ -1,10 +1,6 @@
 import React from "react";
 
-interface Props {}
-
-function Loading(props: Props) {
-  
-
+function Loading() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div role="status" className="flex flex-col items-center">

@@ -1,7 +1,7 @@
 import PostManagement from "@/components/posts/PostManagement";
-import Loading from "@/components/loading/Loading";
+import Loading from "@/components/handler/Loading";
 import { usePosts } from "@/context/postContext";
-import ErrorMessage from "@/components/loading/ErrorMessage";
+import ErrorMessage from "@/components/handler/ErrorMessage";
 
 export default function Home() {
   const { posts, isLoading, isError, error } = usePosts();
