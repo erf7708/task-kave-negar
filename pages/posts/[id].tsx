@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import { Post } from "@/utils/types";
 import { getOnePostById } from "@/services/postServices";
-import Loading from "@/components/loading/Loading";
+import Loading from "@/components/handler/Loading";
 import { PostDetails } from "@/components/posts/PostDetails";
-import ErrorMessage from "@/components/loading/ErrorMessage";
-import NoData from "@/components/loading/NoData";
+import ErrorMessage from "@/components/handler/ErrorMessage";
+import NoData from "@/components/handler/NoData";
 
 function page() {
   const router = useRouter();

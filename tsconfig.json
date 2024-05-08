@@ -16,6 +16,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/posts/create/CreatePost.test.js", "jest.config.js", "jest.setup.js"],
   "exclude": ["node_modules"]
 }
